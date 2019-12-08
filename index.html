@@ -1,0 +1,583 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>UNIX</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section><h1>10 Essential unix commands</h1></section>
+			<section>
+				<section> What is Unix</section>
+				<section>UNIX is an operating system.</section>
+				<section> By operating system, we mean the suite of programs which make the computer work. It is a stable,
+					multi-user, multi-tasking system for servers, desktops and laptops and etc.</section>
+				<section>The UNIX operating system is made up of three parts; the kernel, the shell and the programs.</section>
+				<section>The kernel of UNIX is the hub of the operating system: it allocates time and memory to programs and
+					handles the filestore and communications in response to system calls.</section>
+				<section>The shell acts as an interface between the user and the kernel(CLI).</section>
+				<section>Terminal is a program that run a shell.</section>
+				<section><img src="./images/diagram3-terminal-and-shell.png" class="img" alt="shell"  ></section>
+			</section>
+			<section>
+				<section>Commands</section>
+				<section>
+					<ul class="ul">
+						<li>CP</li>
+						<li>CD</li>
+						<li>LS</li>
+						<li>MV</li>
+						<li>rm</li>
+						<li>cat</li>
+						<li>tar</li>
+						<li>grep</li>
+						<li>pwd</li>
+						<li>man</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>CP</h2>
+				</section>
+				<section>CP is a Unix shell command to copy files and directories</section>
+				<section>
+					<h3>cp syntax</h3>
+					cp <span class="blue">options</span> <span class="red">source</span> <span class="yellow">destination</span>
+				</section>
+				<section>
+					<table>
+						<tbody>
+							<tr>
+								<th>option</th>
+								<th>description</th>
+							</tr>
+							<tr>
+								<td class="code">cp -a</td>
+								<td>archive files</td>
+							</tr>
+							<tr>
+								<td class="code">cp -f</td>
+								<td>force copy by removing the destination file if needed</td>
+							</tr>
+							<tr>
+								<td class="code">cp -i</td>
+								<td>interactive - ask before overwrite</td>
+							</tr>
+							<tr>
+								<td class="code">cp -n</td>
+								<td>no file overwrite</td>
+							</tr>
+							<tr>
+								<td class="code">cp -u</td>
+								<td>update - copy when source is newer than dest</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<p class="yellow">$ cp main.c def.h /home/usr/rapid/</p>
+					<p class="fragment fade-up">Copy 2 files main.c and def.h to destination absolute path directory
+						/home/usr/rapid/.</p>
+				</section>
+				<section data-transition-speed="slide-in fade-out">
+					<p class="yellow">$ cp -u * /bak</p>
+					<p class="fragment fade-up">Update all files in current directory - copy only newer files to destination
+						directory bak.</p>
+				</section>
+				<section data-transition-speed="slide-in fade-out">
+					<p class="yellow">$ cp src /home/usr/rapid/</p>
+					<p class="fragment fade-up">Copy directory src to absolute path directory /home/usr/rapid/.</p>
+				</section>
+			</section>
+
+
+
+			<section>
+				<section>
+					<h2>CD</h2>
+				</section>
+				<section>
+					CD is a UNIX command to change the directory/folder of the terminal's shell.
+				</section>
+				<section data-transition-speed="slide-in fade-out">
+					<h3>cd syntax</h3>
+					<p class="yellow">$ cd <span class="red">[directory]</span></p>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ cd</p>
+					<p class="fragment fade-up">Change to home directory (determined by $HOME environment variable)</p>
+				</section>
+				<section>
+					<p class="yellow">$ cd ..</p>
+					<p class="fragment fade-up">Change to parent directory.</p>
+				</section>
+				<section>
+					<p class="yellow">$ cd /home/user/Desktop</p>
+					<p class="fragment fade-up">Change to directory with absolute path /home/user/Desktop.</p>
+				</section>
+			</section>
+
+
+			<section>
+				<section>
+					<h2>ls</h2>
+				</section>
+				<section>
+					LS is a UNIX shell command that lists directory contents of files and directories.
+				</section>
+				<section data-transition-speed="slide-in fade-out">
+					<h3>ls syntax</h3>
+					<p>$ ls <span class="blue">[options]</span> <span class="red">[file|dir]</span></p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<th>option</th>
+								<th>description</th>
+							</tr>
+							<tr>
+								<td class="code"> ls -a</a></td>
+								<td>list all files including hidden file starting with '.'</td>
+							</tr>
+							<tr>
+								<td class="code"> ls -l</a></td>
+								<td>list with long format - show permissions</td>
+							</tr>
+
+							<tr>
+								<td class="code"> ls -r</a></td>
+								<td>list in reverse order</td>
+							</tr>
+
+							<tr>
+								<td class="code">
+									ls -s</a></td>
+								<td>list file size</td>
+							</tr>
+							<tr>
+								<td class="code"> ls -S</a></td>
+								<td>sort by file size</td>
+							</tr>
+							<tr>
+								<td class="code"> ls -t</a></td>
+								<td>sort by time &amp; date</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ ls -l</p>
+					<p class="fragment fade-up">List with long format</p>
+				</section>
+				<section>
+					<img class="img" src="./images/ls.JPG" alt="ls-l">
+				</section>
+
+			</section>
+
+
+			<section>
+				<section>
+					<h2>mv</h2>
+				</section>
+				<section>
+					MV command is used to move files and directories.
+				</section>
+				<section data-transition-speed="slide-in fade-out">
+					<h3>ls syntax</h3>
+					<p>$ mv <span class="blue">[options]</span> <span class="yellow">source</span> <span class="red">
+							destination</span></p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<th>option</th>
+								<th>description</th>
+							</tr>
+							<tr>
+								<td class="code">mv -f</td>
+								<td>force move by overwriting destination file without prompt</td>
+							</tr>
+							<tr>
+								<td class="code">mv -i</td>
+								<td>interactive prompt before overwrite</td>
+							</tr>
+							<tr>
+								<td class="code">mv -u</td>
+								<td>update - move when source is newer than destination</td>
+							</tr>
+							<tr>
+								<td class="code">mv -v</td>
+								<td>verbose - print source and destination files</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ mv main.c def.h /home/usr/rapid/</p>
+					<p class="fragment fade-up">Move main.c def.h files to /home/usr/rapid/ directory.</p>
+				</section>
+			</section>
+
+
+			<section>
+				<section>
+					<h2>rm</h2>
+				</section>
+				<section>
+				 RM	remove files or directories.
+				</section>
+				<section data-transition-speed="slide-in fade-out">
+					<h3>rm syntax</h3>
+					<p>$ rm <span class="blue">[options]</span> <span class="red"> file</span></p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<th>option</th>
+								<th>description</th>
+							</tr>
+							<tr>
+								<td class="code">rm -f</td>
+								<td>ignore nonexistent files, never prompt</td>
+							</tr>
+							<tr>
+								<td class="code">rm -i</td>
+								<td>prompt before every removal</td>
+							</tr>
+							<tr>
+								<td class="code">mv -v</td>
+								<td>explain what is being done</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ rm /home/hope/file.txt</p>
+					<p class="fragment fade-up">Delete the file "file.txt" that located in the directory "/home/hope".</p>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>cat</h2>
+				</section>
+				<section>
+					CAT command is used to display the content of text files and to combine several files to one file
+				</section>
+				<section>
+					<h3>rm syntax</h3>
+					<p>$ rm <span class="blue">[options]</span> <span class="red"> file1 [file2...]</span></p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<th>option</th>
+								<th>description</th>
+							</tr>
+							<tr>
+								<td class="code">cat -s</td>
+								<td>squeeze blank lines to one line</td>
+							</tr>
+							<tr>
+								<td class="code">cat -E</td>
+								<td>show $ at the end of line</td>
+							</tr>
+							<tr>
+								<td class="code">cat -T</td>
+								<td>show ^I instead of tabs</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ cat list1.txt </p>
+					<p class="red">
+						milk<br>
+						bread <br>
+						apples <br>
+					</p>
+
+					<p class="yellow">$ cat list2.txt </p>
+					<p class="red">
+						house<br>
+						car <br>
+					</p>
+					<p class="fragment fade-up">View text file data.</p>
+				</section>
+				<section>
+					<p class="yellow">$ cat list1.txt list2.txt > list3.txt</p>
+					<p class="red"> milk<br>
+						bread <br>
+						apples <br>
+						house<br>
+						car <br></p>
+				</section>
+			</section>
+
+
+			<section>
+				<section>
+					<h2>tar</h2>
+				</section>
+				<section>
+					The UNIX “tar” stands for tape archive. The tar is most widely used command to create compressed archive
+					files.
+				</section>
+				<section>
+					<h3>tar syntax</h3>
+					<p>$ tar <span class="blue">[options]</span> <span class="red">destination</span> <span class="yellow">
+							source</span></p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<td>A</td>
+								<td>tar files to an archive.</td>
+							</tr>
+							<tr>
+								<td>c</td>
+								<td>Create a new archive.</td>
+							</tr>
+							<tr>
+								<td>d</td>
+								<td>Calculate any differences between the archive and the file system.</td>
+							</tr>
+							<tr>
+								<td>t</td>
+								<td>List the contents of an archive.</td>
+							</tr>
+							<tr>
+								<td> x </td>
+								<td>Extract files from an archive.</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ tar -cf archive.tar file1 file2 </p>
+					<p class="fragment fade-up">Creates archive.tar from file1 and file2.</p>
+				</section>
+			</section>
+
+
+			<section>
+				<section>
+					<h2>grep</h2>
+				</section>
+				<section>
+					The grep filter searches a file for a particular pattern of characters, and displays all lines that contain
+					that pattern. The pattern that is searched in the file is referred to as the regular expression (grep stands
+					for globally search for regular expression and print out).
+				</section>
+				<section>
+					<h3>grep syntax</h3>
+					<p>$ grep <span class="blue">[options]</span> <span class="red">pattern</span> <span class="yellow">
+							[files]</span></p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<td>c</td>
+								<td>This prints only a count of the lines that match a pattern</td>
+							</tr>
+							<tr>
+								<td>i</td>
+								<td>Ignores, case for matching</td>
+							</tr>
+							<tr>
+								<td>n</td>
+								<td>Display the matched lines and their line numbers</td>
+							</tr>
+							<tr>
+								<td>v</td>
+								<td>This prints out all the lines that do not matches the pattern</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ cat > 1.txt</p>
+					<p class="red"> unix is great os. unix is opensource. unix is free os. <br>
+						learn operating system. <br>
+						Unix linux which one you choose. <br>
+						uNix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful. <br> </p>
+					<p class="fragment fade-up">Creates 1.txt file with given text.</p>
+				</section>
+				<section>
+					<p class="yellow">$ grep -i "UNix" 1.txt</p>
+					<p class="blue">OUTPUT</p>
+					<p class="red"> unix is great os. unix is opensource. unix is free os. <br>
+						Unix linux which one you choose. <br>
+						uNix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful. <br>
+						<p class="fragment fade-up">The -i option enables to search for a string case insensitively in the give
+							file. It matches the words like “UNIX”, “Unix”, “unix”.</p>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>PWD</h2>
+				</section>
+				<section>
+					PWD stands for Print Working Directory. It prints the path of the working directory, starting from the root.
+				</section>
+				<section>
+					<h3>pwd syntax</h3>
+					<p>$ pwd <span class="blue">[OPTION]</span> </p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<td>L</td>
+								<td>Prints the symbolic path</td>
+							</tr>
+							<tr>
+								<td>P</td>
+								<td>Prints the actual path</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ pwd</p>
+					<p class="red fragment fade-up">/home/hope/mysymlink/mydir</p>
+					<p class="fragment fade-up">Print the name of the working directory.</p>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h2>MAN</h2>
+				</section>
+				<section>
+					Man command in Unix is used to display the user manual of any command that we can run on the terminal. It
+					provides a detailed view of the command which includes NAME, DESCRIPTION, OPTIONS,
+					RETURN VALUES, ERRORS, etc.
+				</section>
+				<section>
+					<h3>man syntax</h3>
+					<p>$ man <span class="blue">[OPTION]</span> <span class="red">[COMMAND NAME]</span> </p>
+				</section>
+				<section>
+					<h3>Options</h3>
+					<table class="dtable">
+						<tbody>
+							<tr>
+								<td>f file</td>
+								<td>Display a summary (one line) for each file</td>
+							</tr>
+							<tr>
+								<td>k keywords</td>
+								<td>Displays the header lines that contain any of the keywords</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h3>Examples: </h3>
+				</section>
+				<section>
+					<p class="yellow">$ man printf</p>
+					<p class="fragment fade-up">It displays the whole manual of the command</p>
+				</section>
+				<section>
+					<img class="img" src="./images/man.png" alt="man">
+				</section>
+			</section>
+			<section>
+				<h2>THAT'S IT</h2>
+				<h3>THANKS FOR YOUR ATTENTION</h3>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
